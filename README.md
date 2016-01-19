@@ -11,3 +11,5 @@ Model prediction for Kaggle's Titanic competition
 
 05 - Gradient Boosting and combime algo : Using gradient boosting technique instead of random forest and trying to combine it with Logistic Regression
 
+06 - Application of prediction model using the combinasion of random forest and logistic regression to the test data set
+
