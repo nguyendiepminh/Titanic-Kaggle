@@ -1,31 +1,25 @@
-''''
-@author: Diep Minh NGUYEN
-'''''
-from azureml import Workspace
-ws = Workspace(
-    workspace_id='abb6cf79be834d22a0a4b39a7bc5fd2b',
-    authorization_token='ea24b28c67be4182896c534b876e128f',
-    endpoint='https://studioapi.azureml.net'
-)
-ds1 = ws.datasets['train.csv']
-frame1 = ds1.to_dataframe()
-ds2 = ws.datasets['test.csv']
-frame2 = ds2.to_dataframe()
+# -*- coding: utf-8 -*-
+"""
+Created on Tue Jan 19 12:44:46 2016
+
+@author: s621208
+"""
 
 #import
 import pandas as pandas
 import numpy as numpy
 #read file
-titanic = pandas.read_csv("E:/AXA/AXA Entreprise IARD/Python/data/train.csv")
-titanic_test = pandas.read_csv("E:/AXA/AXA Entreprise IARD/Python/data/test.csv")
+titanic = pandas.read_csv("C:/Users/s621208/Downloads/data/train.csv")
+titanic_test = pandas.read_csv("C:/Users/s621208/Downloads/data/test.csv")
 
 titanic.tail()
 titanic.head()
 type(titanic)
 titanic.info()
-#Missing value on Cabin, Embarked, Age
+#Missing value on Cabin (too many), Embarked, Age
 #Object type : Name, Sex, Ticket, Cabin, Embarked
 #Modification
+
 titanic['Sex']=pandas.Categorical(titanic['Sex'],ordered=False)
 titanic['Name']=pandas.Categorical(titanic['Name'],ordered=False)
 titanic['Ticket']=pandas.Categorical(titanic['Ticket'],ordered=False)
@@ -100,3 +94,4 @@ titanic.loc[titanic["Sex"] == "female", "Sex1"] = 1
 titanic.loc[titanic["Embarked"] == "S", "Port"] = 0
 titanic.loc[titanic["Embarked"] == "C", "Port"] = 1
 titanic.loc[titanic["Embarked"] == "Q", "Port"] = 2
+

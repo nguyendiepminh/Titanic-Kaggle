@@ -1,4 +1,8 @@
-@author: Diep Minh NGUYEN
+# -*- coding: utf-8 -*-
+"""
+Created on Tue Jan 19 13:12:54 2016
+
+@author: s621208
 """
 
 """

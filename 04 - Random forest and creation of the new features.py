@@ -1,4 +1,8 @@
-@author: Diep Minh Nguyen
+# -*- coding: utf-8 -*-
+"""
+Created on Tue Jan 19 13:18:44 2016
+
+@author: s621208
 """
 
 """
@@ -99,10 +103,19 @@ plt.bar(range(len(predictors)), scores)
 plt.xticks(range(len(predictors)), predictors, rotation='vertical')
 plt.show()
 
+#Random Forest with all the variables
+predictors = ["Pclass", "Sex1", "Age", "SibSp", "Parch", "Fare", "Port", "FamilySize", "Title", "NameLength"]
+alg = RandomForestClassifier(random_state=1, n_estimators=200, min_samples_split=4, min_samples_leaf=2)
+scores = cross_validation.cross_val_score(alg, titanic[predictors], titanic["Survived"], cv=3)
+print(scores.mean())
+#average score: 83,28%
+
 #Only with the best features
 predictors = ["Pclass", "Sex1", "Fare", "Title", "NameLength", "Port"]
 alg = RandomForestClassifier(random_state=1, n_estimators=200, min_samples_split=4, min_samples_leaf=2)
 scores = cross_validation.cross_val_score(alg, titanic[predictors], titanic["Survived"], cv=3)
 print(scores.mean())
 
-#average score : 83,27%
+#average score : 83,28%
+
+#There is not differences between the 2 predictors, use the shorter version
