@@ -36,3 +36,4 @@ accuracy = sum(predictions[predictions == titanic["Survived"]]) / len(prediction
 print(accuracy)   
 
 #accuracy : 81,93%
+
